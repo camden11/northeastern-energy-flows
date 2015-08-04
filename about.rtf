@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww11540\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 NortheasternEnergyFlows\
+\
+About\
+NortheasternEnergyFlows provides a visualization of power usage at Northeastern during 2013 and 2014. The application provides a map of buildings on Northeastern\'92s campus, with each building color coded to show its power usage at the current time. Specific data on each building can also be viewed, and users also have the ability to view data at different times between December 2013 and 2014.\
+\
+Current Functionality\
+- Display of relative power usage of each building (colors)\
+- Display of exact power usage of each data site\
+- Panning and zooming\
+- Time changing\
+- Precise time changing\
+\
+User Interface\
+The UI is composed of three components: the building view, data window, and time bar\
+- Building view: shows a map of Northeastern and the relative power usage of each building on campus that data exists for at the current time. Green buildings are using low amounts of power, whereas red buildings are using the most amount of power. Grey buildings have no recorded energy data at the current time. The building view can be panned around, and zoomed in and out. For buildings with more than one data site, the building\'92s color represents the total amount of power recorded at each data site. Hovering on a building gives more information on that building in the data window\
+- Data window: shows more specific information on a building when that building is hovered over in the building view. Currently, this includes the building\'92s name, the codes of each of its data sites (if it has more than one), and the power levels at each data site in kilowatts.\
+- Time bar: shows, relatively the current location in time, and allows for changes in the current time. The circle on the time bar can be dragged for large changes in time, and the arrow keys can be used to make smaller, more precise changes in time.\
+\
+Controls\
+- SHIFT + left click  + drag: zoom in and out\
+- SHIFT + left and right click + drag: pan\
+- mouse: select building\
+- left arrow key: decrement current time 15 minutes\
+- right arrow key: increment current time 15 minutes\
+\
+Planned Future Functionality\
+- Play and pause buttons for time\
+- Filter buildings by type\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+Code\
+\
+class NortheasternEnergyFlows\
+Main class. The NortheasternEnergyFlows class is responsible for loading data from .csv files, initializing other classes, and running the game by calling methods on the controller.\
+\
+class NEFModel\
+Model in the model-view-controller pattern. The NEFModel class holds all hard data the application needs to run, including a list of all Buildings, Sites, and their attributes, as well as the current time.\
+\
+class NEFView\
+View in the model-view-controller pattern. The NEFView class is responsible for creating a visual display of the data in the model. Also detects user interaction\
+\
+class NEFController\
+Controller in the model-view-controller pattern. The NEFController calls methods on the model and view in order to run the game, and also handles user interaction detected by the view.\
+\
+class Building\
+Represents a building on Northeastern\'92s campus. Holds data on the building\'92s name and dimensions.\
+\
+class Site\
+Represents a data site in a Northeastern building. Has a record of power usage data (in most cases) for every 15-min interval from December 2013 - December 2014. Also holds information on its name and associated building.\
+\
+class Posn\
+Represents a point in a coordinate plane, with location data available as a double or float\
+\
+enum UseType *provision for future additions*\
+Provides values for different types of buildings at Northeastern\
+\
+\
+Used Libraries\
+giCentre zoom http://www.gicentre.net/utils/zoom/\
+\
+}
